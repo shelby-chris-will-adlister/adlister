@@ -1,7 +1,7 @@
 package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
-import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.Contract;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,12 +18,15 @@ public class CreateAdServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Ad ad = new Ad(
+        Double reward = Double.parseDouble(request.getParameter("reward"));
+        Contract contract = new Contract(
             1, // for now we'll hardcode the user id
             request.getParameter("title"),
-            request.getParameter("description")
+            request.getParameter("description"),
+            request.getParameter("country"),
+            reward
         );
-        DaoFactory.getAdsDao().insert(ad);
-        response.sendRedirect("/ads");
+        DaoFactory.getContractsDao().insert(contract);
+        response.sendRedirect("/contacts");
     }
 }

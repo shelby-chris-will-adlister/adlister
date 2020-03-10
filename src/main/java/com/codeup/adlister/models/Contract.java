@@ -1,22 +1,28 @@
 package com.codeup.adlister.models;
 
-public class Ad {
+public class Contract {
     private long id;
     private long userId;
     private String title;
     private String description;
+    private String country;
+    private double reward;
 
-    public Ad(long id, long userId, String title, String description) {
+    public Contract(long id, long userId, String title, String description, String country, double reward) {
         this.id = id;
         this.userId = userId;
         this.title = title;
         this.description = description;
+        this.country = country;
+        this.reward = reward;
     }
 
-    public Ad(long userId, String title, String description) {
+    public Contract(long userId, String title, String description, String country, double reward) {
         this.userId = userId;
         this.title = title;
         this.description = description;
+        this.country = country;
+        this.reward = reward;
     }
 
     public long getId() {
@@ -49,5 +55,21 @@ public class Ad {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public double getReward() {
+        return reward;
+    }
+
+    public void setReward(long reward) {
+        this.reward = reward;
     }
 }
