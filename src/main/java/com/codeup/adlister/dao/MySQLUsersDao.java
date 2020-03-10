@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.User;
+import com.codeup.adlister.util.Config;
 import com.mysql.cj.jdbc.Driver;
 import sun.security.krb5.Config;
 
@@ -58,6 +59,7 @@ public class MySQLUsersDao implements Users {
         }
         return new User(
             rs.getLong("id"),
+            rs.getLong("roleId"),
             rs.getString("username"),
             rs.getString("email"),
             rs.getString("password")
