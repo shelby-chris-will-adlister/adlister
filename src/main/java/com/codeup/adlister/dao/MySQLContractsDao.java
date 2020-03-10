@@ -15,7 +15,14 @@ public class MySQLContractsDao implements Contracts {
     public static void main(String[] args) {
         MySQLContractsDao contractsDao = new MySQLContractsDao(config);
 
-        System.out.println(contractsDao.getContractRoles(3));
+//        System.out.println(contractsDao.getContractRoles(3));
+
+//        contractsDao.insert(new Contract(3, "Test", "Test", "Test", 3.4));
+
+//        List<Contract> allByUser = contractsDao.all(1);
+//        for(Contract c : allByUser) {
+//            System.out.println(c.getTitle());
+//        }
     }
 
     public MySQLContractsDao(Config config) {
@@ -28,6 +35,49 @@ public class MySQLContractsDao implements Contracts {
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
+        }
+    }
+
+    @Override
+    public List<Contract> all() {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM contracts");
+            ResultSet rs = stmt.executeQuery();
+            return createContractsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all contracts.", e);
+        }
+    }
+
+    public List<Contract> all(long userId) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM contracts WHERE user_id = ?");
+            stmt.setLong(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            return createContractsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all contracts.", e);
+        }
+    }
+
+    @Override
+    public Long insert(Contract contract) {
+        try {
+            String insertQuery = "INSERT INTO contracts(user_id, title, description, country, reward) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, contract.getUserId());
+            stmt.setString(2, contract.getTitle());
+            stmt.setString(3, contract.getDescription());
+            stmt.setString(4, contract.getCountry());
+            stmt.setDouble(5, contract.getReward());
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
+            return rs.getLong(1);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating a new contract.", e);
         }
     }
 
@@ -48,36 +98,7 @@ public class MySQLContractsDao implements Contracts {
             }
             return roles;
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all contacts.", e);
-        }
-    }
-
-    @Override
-    public List<Contract> all() {
-        PreparedStatement stmt = null;
-        try {
-            stmt = connection.prepareStatement("SELECT * FROM contracts");
-            ResultSet rs = stmt.executeQuery();
-            return createContractsFromResults(rs);
-        } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all contacts.", e);
-        }
-    }
-
-    @Override
-    public Long insert(Contract contract) {
-        try {
-            String insertQuery = "INSERT INTO contracts(user_id, title, description) VALUES (?, ?, ?)";
-            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, contract.getUserId());
-            stmt.setString(2, contract.getTitle());
-            stmt.setString(3, contract.getDescription());
-            stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
-            rs.next();
-            return rs.getLong(1);
-        } catch (SQLException e) {
-            throw new RuntimeException("Error creating a new contract.", e);
+            throw new RuntimeException("Error retrieving contract roles.", e);
         }
     }
 
