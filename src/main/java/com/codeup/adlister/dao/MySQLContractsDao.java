@@ -23,6 +23,11 @@ public class MySQLContractsDao implements Contracts {
 //        for(Contract c : allByUser) {
 //            System.out.println(c.getTitle());
 //        }
+
+//        List<Contract> returnedContracts = contractsDao.getContractsByRole("Banker");
+//        for(Contract c : returnedContracts) {
+//            System.out.println(c.getTitle());
+//        }
     }
 
     public MySQLContractsDao(Config config) {
@@ -78,6 +83,29 @@ public class MySQLContractsDao implements Contracts {
             return rs.getLong(1);
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new contract.", e);
+        }
+    }
+
+    public List<Contract> getContractsByRole(Long roleId) {
+        List<Contract> returnContacts = new ArrayList<>();
+        PreparedStatement stmt = null;
+        try {
+            String selectQuery = "SELECT *\n" +
+                    "FROM contracts AS c\n" +
+                    "JOIN contracts_roles AS cr\n" +
+                    "ON cr.contract_id = c.id\n" +
+                    "JOIN roles AS r\n" +
+                    "ON r.id = cr.role_id\n" +
+                    "WHERE r.id = ?";
+            stmt = connection.prepareStatement(selectQuery);
+            stmt.setLong(1, roleId);
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()) {
+                returnContacts.add(extractContract(rs));
+            }
+            return returnContacts;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving contracts by role.", e);
         }
     }
 

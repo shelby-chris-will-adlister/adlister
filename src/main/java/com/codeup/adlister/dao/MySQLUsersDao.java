@@ -3,6 +3,7 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.User;
 import com.codeup.adlister.util.Config;
 import com.mysql.cj.jdbc.Driver;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
 
@@ -12,8 +13,10 @@ public class MySQLUsersDao implements Users {
 
     public static void main(String[] args) {
         MySQLUsersDao usersDao = new MySQLUsersDao(config);
+        String hash = BCrypt.hashpw("abc", BCrypt.gensalt());
+        System.out.println(hash);
 
-        usersDao.insert(new User(3, "test", "test", "test"));
+//        usersDao.insert(new User(3, "test", "test", "test"));
     }
 
     public MySQLUsersDao(Config config) {
@@ -65,7 +68,7 @@ public class MySQLUsersDao implements Users {
         }
         return new User(
             rs.getLong("id"),
-            rs.getLong("roleId"),
+            rs.getLong("role_id"),
             rs.getString("username"),
             rs.getString("email"),
             rs.getString("password")

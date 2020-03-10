@@ -13,11 +13,11 @@ INSERT INTO roles(role) VALUES
     ('Banker');
 
 INSERT INTO users(username, email, password, role_id) VALUES
-    ('Adam Weishaupt', 'badpassword@gmail.com', '1234512345', 1),
-    ('Brad Pitt', 'fightclub@gmail.com', 'abc', 4),
-    ('David Rockefeller', 'oilmoney@gmail.com', 'test', 10),
-    ('Dianne Feinstein', 'difi@gmail.com', 'test', 2),
-    ('Keanu Reeves', 'theone@gmail.com', 'test', 9);
+    ('Adam Weishaupt', 'badpassword@gmail.com', '$2a$10$RQt2KJJ7zh9BfynID2r3WuSf3niZZOstch6gmSRj37GVs/J.WCWMK', 1),
+    ('Brad Pitt', 'fightclub@gmail.com', '$2a$10$yJKOiEP3sPcnlIez/9vX3.PWSN/f2ySiAh4C1OrvAoSuqFb71Hng2', 4),
+    ('David Rockefeller', 'oilmoney@gmail.com', '$2a$10$ilQzqh/S8hpuYvFqbCmQjeq83ehP3fylSRYJat/5jyyh5Apwctsme', 10),
+    ('Dianne Feinstein', 'difi@gmail.com', '$2a$10$bDBIonr73.CBPScriBf1peuTx9hrmx0A37ZRPq6RA8ZES93JnOeBi', 2),
+    ('Keanu Reeves', 'theone@gmail.com', '$2a$10$OXmCEoe/q8gKulL2WsBAN.95Cjb4OV4fG47JowYaYwbia7RUVQB9i', 9);
 
 INSERT INTO contracts(title, description, country, reward, user_id) VALUES
     ('Blow Up Chinese Satellite', '...', 'China', 5.5, 1),
