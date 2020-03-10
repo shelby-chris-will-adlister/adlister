@@ -10,6 +10,13 @@ import java.util.List;
 
 public class MySQLContractsDao implements Contracts {
     private Connection connection = null;
+    private static Config config = new Config();
+
+    public static void main(String[] args) {
+        MySQLContractsDao contractsDao = new MySQLContractsDao(config);
+
+        System.out.println(contractsDao.getContractRoles(3));
+    }
 
     public MySQLContractsDao(Config config) {
         try {
@@ -24,6 +31,26 @@ public class MySQLContractsDao implements Contracts {
         }
     }
 
+    public List<String> getContractRoles(long contactId) {
+        ArrayList<String> roles = new ArrayList<>();
+        PreparedStatement stmt = null;
+        try {
+            String selectQuery = "SELECT r.role\n" +
+                    "FROM roles AS r\n" +
+                    "JOIN contracts_roles AS cr\n" +
+                    "ON cr.role_id = r.id\n" +
+                    "WHERE cr.contract_id = ?";
+            stmt = connection.prepareStatement(selectQuery);
+            stmt.setLong(1, contactId);
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()) {
+                roles.add(rs.getString("role"));
+            }
+            return roles;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all contacts.", e);
+        }
+    }
 
     @Override
     public List<Contract> all() {
