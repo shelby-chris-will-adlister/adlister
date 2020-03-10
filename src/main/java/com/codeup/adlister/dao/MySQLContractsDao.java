@@ -24,6 +24,7 @@ public class MySQLContractsDao implements Contracts {
         }
     }
 
+
     @Override
     public List<Contract> all() {
         PreparedStatement stmt = null;
