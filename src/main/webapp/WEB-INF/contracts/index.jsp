@@ -3,21 +3,37 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Viewing All The Contracts" />
+        <jsp:param name="title" value="Viewing All The Contracts"/>
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
-<div class="container">
-    <h1>Here Are all the contract!</h1>
-
-    <c:forEach var="contract" items="${contracts}">
-        <div class="col-md-6">
-            <h2>${contract.title}</h2>
-            <p>${contract.description}</p>
+<div class="container text-center">
+    <h1 class="text-center">Available Contracts: </h1>
+    <div class="container">
+        <div class="row mt-5 d-flex justify-content-center">
+            <c:forEach var="contract" items="${contracts}">
+                <div class="col-sm-4 card card-custom mx-2 mb-3 text-center" style="">
+                    <img src="half-dozen.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">MISSION: ${contract.title}</h2>
+                        <p class="card-text text-center">SITREP: ${contract.description}</p>
+                        <p class="card-text text-center">REWARD: $${contract.reward}M</p>
+                        <p class="card-text text-center">LOCATION: ${contract.country}</p>
+                    </div>
+                </div>
+            </c:forEach>
         </div>
-    </c:forEach>
+    </div>
+    <%--    <div class="col-sm-4 card card-custom mx-2 mb-3 text-center" style="">--%>
+    <%--        <img src="half-dozen.jpg" class="card-img-top" alt="...">--%>
+    <%--        <div class="card-body">--%>
+    <%--            <h5 class="card-title text-center">Half-Doze Roses</h5>--%>
+    <%--            <p class="card-text text-center">Six Roses</p>--%>
+    <%--            <a href="#" class="btn btn-primary text-center">Out Of Stock</a>--%>
+    <%--        </div>--%>
+    <%--    </div>--%>
 </div>
 
 </body>

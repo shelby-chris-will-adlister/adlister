@@ -1,8 +1,13 @@
 <nav class="navbar bg-white">
-    <div class="container-fluid-nav bg-white">
+    <div class="container-fluid-nav bg-white text-center">
         <!-- Brand and toggle get grouped for better mobile display -->
+<<<<<<< Updated upstream
         <div class="navbar-header">
             <a class="navbar-brand" href="/adlister_war_exploded/">
+=======
+        <div class="navbar-header text-center">
+            <a class="navbar-brand" href="/">
+>>>>>>> Stashed changes
                 <img src="img/rose.jpg" width="30" height="30" class="p-0 mt-1" alt=""></a>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/login">Login</a></li>

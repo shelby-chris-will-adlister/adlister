@@ -13,13 +13,18 @@
     </div>
 
     <div class="container">
-        <h2><a href="/contracts">See Adds Available for Your Skill-Set</a></h2>
+        <h2><a href="/contracts">View Available Contracts</a></h2>
     </div>
 
     <div class="container">
-        <h2>See Adds Available for Your Skill-Set</h2>
+        <h2>Contracts You've Created</h2>
+        <c:forEach var="contract" items="${contracts}">
+            <div class="col-md-6">
+                <h2>${contract.title}</h2>
+                <p>${contract.description}</p>
+            </div>
+        </c:forEach>
     </div>
-
 
 </body>
 </html>
