@@ -10,7 +10,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
     <h1>Edit a contract</h1>
-    <form action="/edit" method="POST">
+    <form action="/contracts/edit" method="POST">
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" name="title" id="title" class="form-control" value="<c:out value='${contract.title}' />"/>
