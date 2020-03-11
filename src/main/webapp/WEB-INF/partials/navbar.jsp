@@ -1,10 +1,9 @@
 <nav class="navbar bg-white">
-    <div class="container-fluid-nav bg-white">
+    <div class="container-fluid-nav bg-white text-center">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
+        <div class="navbar-header text-center">
             <a class="navbar-brand" href="/">
-                <img src="img/rose.jpg" width="30" height="30" class="p-0 mt-1" alt="">
-            </a>
+                <img src="img/rose.jpg" width="30" height="30" class="p-0 mt-1" alt=""></a>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/login">Login</a></li>
             <li><a href="/logout">Logout</a></li>
