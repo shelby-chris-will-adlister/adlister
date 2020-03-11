@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
@@ -17,8 +18,17 @@
     </div>
 
     <div class="container">
-        <h2>See Adds Available for Your Skill-Set</h2>
+        <h2>Contracts You've Created</h2>
+
+        <c:forEach var="contract" items="${contracts}">
+            <div class="col-md-6">
+                <h2>${contract.title}</h2>
+                <p>${contract.description}</p>
+            </div>
+        </c:forEach>
     </div>
+
+
 
 
 </body>

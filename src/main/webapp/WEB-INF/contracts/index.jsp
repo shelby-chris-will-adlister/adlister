@@ -10,7 +10,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Here Are all the contract!</h1>
+    <h1>Apply For These Contracts!</h1>
 
     <c:forEach var="contract" items="${contracts}">
         <div class="col-md-6">

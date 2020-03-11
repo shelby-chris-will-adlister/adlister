@@ -17,7 +17,8 @@ INSERT INTO users(username, email, password, role_id) VALUES
     ('Brad Pitt', 'fightclub@gmail.com', '$2a$10$yJKOiEP3sPcnlIez/9vX3.PWSN/f2ySiAh4C1OrvAoSuqFb71Hng2', 4),
     ('David Rockefeller', 'oilmoney@gmail.com', '$2a$10$ilQzqh/S8hpuYvFqbCmQjeq83ehP3fylSRYJat/5jyyh5Apwctsme', 10),
     ('Dianne Feinstein', 'difi@gmail.com', '$2a$10$bDBIonr73.CBPScriBf1peuTx9hrmx0A37ZRPq6RA8ZES93JnOeBi', 2),
-    ('Keanu Reeves', 'theone@gmail.com', '$2a$10$OXmCEoe/q8gKulL2WsBAN.95Cjb4OV4fG47JowYaYwbia7RUVQB9i', 9);
+    ('Keanu Reeves', 'theone@gmail.com', '$2a$10$OXmCEoe/q8gKulL2WsBAN.95Cjb4OV4fG47JowYaYwbia7RUVQB9i', 9),
+    ('drevil', 'justthetwoofus@gmail.com', );
 
 INSERT INTO contracts(title, description, country, reward, user_id) VALUES
     ('Blow Up Chinese Satellite', '...', 'China', 5.5, 1),
