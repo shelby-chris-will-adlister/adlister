@@ -16,6 +16,10 @@
         <h2><a href="/contracts">See Adds Available for Your Skill-Set</a></h2>
     </div>
 
+    <div class="container">
+        <h2>See Adds Available for Your Skill-Set</h2>
+    </div>
+
 
 </body>
 </html>
