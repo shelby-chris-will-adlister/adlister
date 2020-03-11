@@ -27,6 +27,6 @@ public class CreateAdServlet extends HttpServlet {
             reward
         );
         DaoFactory.getContractsDao().insert(contract);
-        response.sendRedirect("/contacts");
+        response.sendRedirect("/contracts");
     }
 }
