@@ -32,16 +32,3 @@ INSERT INTO contracts_roles(contract_id, role_id) VALUES
     (4, 10), (5, 3), (5, 6), (6, 3),
     (6, 6), (6, 9), (7, 5), (7, 3),
     (8, 4);
-
-
-
-
-
-
-
-
-
-
-
-
-

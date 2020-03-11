@@ -9,10 +9,25 @@
     <jsp:include page="partials/navbar.jsp" />
     <div class="container">
         <h1>Please fill in your information.</h1>
-        <form action="/register" method="post">
+        <form action="/register" method="POST">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input id="username" name="username" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="roleId">Select Role:</label>
+                <select class="form-control" id="roleId" name="roleId">
+                    <option value="1">Minerva</option>
+                    <option value="2">Politician</option>
+                    <option value="3">Scientist</option>
+                    <option value="4">Actor</option>
+                    <option value="5">Mercenary</option>
+                    <option value="6">Black Ops</option>
+                    <option value="7">Clergy</option>
+                    <option value="8">Grunt</option>
+                    <option value="9">Hacker</option>
+                    <option value="10">Banker</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>

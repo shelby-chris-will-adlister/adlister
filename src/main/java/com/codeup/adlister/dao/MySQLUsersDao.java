@@ -12,12 +12,16 @@ public class MySQLUsersDao implements Users {
     private static Config config = new Config();
 
     public static void main(String[] args) {
-        MySQLUsersDao usersDao = new MySQLUsersDao(config);
-
-        System.out.println(usersDao.getUserRole(2));
-
-        User user = usersDao.findByUsername("Brad Pitt");
-        System.out.println(user.getUsername());
+//        MySQLUsersDao usersDao = new MySQLUsersDao(config);
+//
+//        System.out.println(usersDao.getUserRole(2));
+//
+//        User user = usersDao.findByUsername("Brad Pitt");
+//        System.out.println(user.getUsername());
+//
+//        String password = "mm";
+//        String hash = BCrypt.hashpw("mm", BCrypt.gensalt());
+//        System.out.println(hash);
 
 //        usersDao.insert(new User(3, "test", "test", "test"));
     }

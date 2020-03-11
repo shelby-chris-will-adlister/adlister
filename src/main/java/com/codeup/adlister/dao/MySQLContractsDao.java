@@ -69,7 +69,6 @@ public class MySQLContractsDao implements Contracts {
         return contractList;
     }
 
-    @Override
     public List<Contract> all() {
         PreparedStatement stmt = null;
         try {

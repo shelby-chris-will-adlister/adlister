@@ -26,6 +26,7 @@
             </c:forEach>
         </div>
     </div>
+  
     <%--    <div class="col-sm-4 card card-custom mx-2 mb-3 text-center" style="">--%>
     <%--        <img src="half-dozen.jpg" class="card-img-top" alt="...">--%>
     <%--        <div class="card-body">--%>
