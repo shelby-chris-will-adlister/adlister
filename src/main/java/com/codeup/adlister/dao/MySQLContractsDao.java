@@ -67,6 +67,17 @@ public class MySQLContractsDao implements Contracts {
         }
     }
 
+    public void deleteContract(long id) {
+        try {
+            String deleteQuery = "DELETE FROM contracts WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(deleteQuery);
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting a new contract.", e);
+        }
+    }
+
     @Override
     public Long insert(Contract contract) {
         try {
