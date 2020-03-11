@@ -6,9 +6,9 @@ public class Contract {
     private String title;
     private String description;
     private String country;
-    private double reward;
+    private float reward;
 
-    public Contract(long id, long userId, String title, String description, String country, double reward) {
+    public Contract(long id, long userId, String title, String description, String country, float reward) {
         this.id = id;
         this.userId = userId;
         this.title = title;
@@ -17,7 +17,7 @@ public class Contract {
         this.reward = reward;
     }
 
-    public Contract(long userId, String title, String description, String country, double reward) {
+    public Contract(long userId, String title, String description, String country, float reward) {
         this.userId = userId;
         this.title = title;
         this.description = description;
@@ -65,11 +65,11 @@ public class Contract {
         this.country = country;
     }
 
-    public double getReward() {
+    public float getReward() {
         return reward;
     }
 
-    public void setReward(long reward) {
+    public void setReward(float reward) {
         this.reward = reward;
     }
 }
