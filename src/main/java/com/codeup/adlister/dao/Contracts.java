@@ -11,4 +11,5 @@ public interface Contracts {
     // insert a new ad and return the new ad's id
     Long insert(Contract ad);
     List<Contract> getContractsByRole(String role);
+    void deleteContract(long id);
 }
