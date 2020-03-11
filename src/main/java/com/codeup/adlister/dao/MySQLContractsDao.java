@@ -1,9 +1,11 @@
 package com.codeup.adlister.dao;
+import com.codeup.adlister.models.User;
 import com.codeup.adlister.util.Config;
 
 import com.codeup.adlister.models.Contract;
 import com.mysql.cj.jdbc.Driver;
 
+import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +26,12 @@ public class MySQLContractsDao implements Contracts {
 //            System.out.println(c.getTitle());
 //        }
 
-        List<Contract> returnedContracts = contractsDao.getContractsByRole("Scientist");
-        for(Contract c : returnedContracts) {
-            System.out.println(c.getTitle());
-        }
+//        List<Contract> returnedContracts = contractsDao.getContractsByRole("Scientist");
+//        for(Contract c : returnedContracts) {
+//            System.out.println(c.getTitle());
+//        }
+
+        contractsDao.deleteContract(3);
     }
 
     public MySQLContractsDao(Config config) {
@@ -92,14 +96,30 @@ public class MySQLContractsDao implements Contracts {
         }
     }
 
+    public Contract getContractById(long id) {
+        String sql = "SELECT * FROM contracts WHERE id = ? LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return extractContract(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error getting contract by ID.", e);
+        }
+    }
+
     public void deleteContract(long id) {
         try {
-            String deleteQuery = "DELETE FROM contracts WHERE id = ?";
-            PreparedStatement stmt = connection.prepareStatement(deleteQuery);
-            stmt.setLong(1, id);
-            stmt.executeUpdate();
+            Statement statementOne = connection.createStatement();
+            String sqlOne = "DELETE FROM contracts_roles WHERE contract_id = " + id;
+            statementOne.executeUpdate(sqlOne);
+            Statement statement = connection.createStatement();
+            String sql = "DELETE FROM contracts WHERE id = " + id;
+            System.out.println(sql);
+            statement.executeUpdate(sql);
         } catch (SQLException e) {
-            throw new RuntimeException("Error deleting a new contract.", e);
+            throw new RuntimeException("Error deleting a contract.", e);
         }
     }
 
