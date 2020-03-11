@@ -43,6 +43,32 @@ public class MySQLContractsDao implements Contracts {
         }
     }
 
+    public List<Contract> listAllContracts() throws SQLException {
+        List<Contract> contractList = new ArrayList<>();
+
+        String sql = "SELECT * FROM contracts";
+
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        while (resultSet.next()) {
+            long id = resultSet.getLong("id");
+            long user_id = resultSet.getLong("user_id");
+            String title = resultSet.getString("title");
+            String description = resultSet.getString("description");
+            String country = resultSet.getString("country");
+            float reward = resultSet.getFloat("reward");
+
+            Contract contract = new Contract(id, user_id, title, description, country, reward);
+            contractList.add(contract);
+        }
+
+        resultSet.close();
+        statement.close();
+
+        return contractList;
+    }
+
     @Override
     public List<Contract> all() {
         PreparedStatement stmt = null;
@@ -150,7 +176,7 @@ public class MySQLContractsDao implements Contracts {
             rs.getString("title"),
             rs.getString("description"),
             rs.getString("country"),
-            rs.getDouble("reward")
+            rs.getFloat("reward")
         );
     }
 
@@ -160,5 +186,33 @@ public class MySQLContractsDao implements Contracts {
             contracts.add(extractContract(rs));
         }
         return contracts;
+    }
+
+
+    public boolean updateContract(Contract contract) throws SQLException {
+        String sql = "UPDATE contracts SET title = ?, description = ?, country = ?, reward = ?, user_id = ?";
+        sql += " WHERE id = ?";
+
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        stmt.setString(1, contract.getTitle());
+        stmt.setString(2, contract.getDescription());
+        stmt.setFloat(3, contract.getReward());
+        stmt.setString(4, contract.getCountry());
+        stmt.setLong(5, contract.getUserId());
+
+        boolean rowUpdated = stmt.executeUpdate() > 0;
+        stmt.close();
+        return rowUpdated;
+    }
+
+    public boolean deleteContract(Contract contract) throws SQLException {
+        String sql = "DELETE FROM contracts WHERE id = ?";
+
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setLong(1, contract.getId());
+
+        boolean rowDeleted = statement.executeUpdate() > 0;
+        statement.close();
+        return rowDeleted;
     }
 }
