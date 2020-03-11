@@ -16,10 +16,10 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
-    <h1><%= request.getParameter("title") %></h1>
-    <h2><%= request.getParameter("reward") %></h2>
-    <h3><%= request.getParameter("location") %></h3>
-    <p><%= request.getParameter("description") %></p>
+    <h1>${contract.title}</h1>
+    <h2>${contract.reward}</h2>
+    <h3>${contract.country}</h3>
+    <p>${contract.description}</p>
 </div>
 </body>
 </html>
