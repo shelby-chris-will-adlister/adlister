@@ -13,4 +13,5 @@ public interface Contracts {
     Long insert(Contract ad);
     List<Contract> getContractsByRole(String role);
     void deleteContract(long id);
+    Contract getContractById(long id);
 }

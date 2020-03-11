@@ -1,5 +1,6 @@
 package com.codeup.adlister.controllers;
 
+import com.codeup.adlister.dao.Contracts;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Contract;
 
@@ -10,10 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/contracts/edit")
-public class EditServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/contracts/delete")
+public class DeleteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/contracts/Edit.jsp")
-                .forward(request, response);
+        long toDeleteId = Long.parseLong(request.getParameter("id"));
+        Contracts contractsDao = DaoFactory.getContractsDao();
+        contractsDao.deleteContract(toDeleteId);
+        response.sendRedirect("/profile");
     }
 }
