@@ -24,10 +24,10 @@ public class MySQLContractsDao implements Contracts {
 //            System.out.println(c.getTitle());
 //        }
 
-//        List<Contract> returnedContracts = contractsDao.getContractsByRole("Banker");
-//        for(Contract c : returnedContracts) {
-//            System.out.println(c.getTitle());
-//        }
+        List<Contract> returnedContracts = contractsDao.getContractsByRole("Scientist");
+        for(Contract c : returnedContracts) {
+            System.out.println(c.getTitle());
+        }
     }
 
     public MySQLContractsDao(Config config) {
@@ -86,7 +86,9 @@ public class MySQLContractsDao implements Contracts {
         }
     }
 
-    public List<Contract> getContractsByRole(Long roleId) {
+    // SELECT * FROM contracts As c JOIN contracts_roles AS cr ON cr.contract_id = c.id JOIN roles AS r ON cr.role_id = r.id WHERE r.role = "Banker";
+
+    public List<Contract> getContractsByRole(String role) {
         List<Contract> returnContacts = new ArrayList<>();
         PreparedStatement stmt = null;
         try {
@@ -95,10 +97,10 @@ public class MySQLContractsDao implements Contracts {
                     "JOIN contracts_roles AS cr\n" +
                     "ON cr.contract_id = c.id\n" +
                     "JOIN roles AS r\n" +
-                    "ON r.id = cr.role_id\n" +
-                    "WHERE r.id = ?";
+                    "ON cr.role_id = r.id\n" +
+                    "WHERE r.role = ?";
             stmt = connection.prepareStatement(selectQuery);
-            stmt.setLong(1, roleId);
+            stmt.setString(1, role);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
                 returnContacts.add(extractContract(rs));

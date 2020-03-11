@@ -13,8 +13,11 @@ public class MySQLUsersDao implements Users {
 
     public static void main(String[] args) {
         MySQLUsersDao usersDao = new MySQLUsersDao(config);
-        String hash = BCrypt.hashpw("abc", BCrypt.gensalt());
-        System.out.println(hash);
+
+        System.out.println(usersDao.getUserRole(2));
+
+        User user = usersDao.findByUsername("Brad Pitt");
+        System.out.println(user.getUsername());
 
 //        usersDao.insert(new User(3, "test", "test", "test"));
     }
@@ -59,6 +62,19 @@ public class MySQLUsersDao implements Users {
             return rs.getLong(1);
         } catch (SQLException e) {
             throw new RuntimeException("Error creating new user", e);
+        }
+    }
+
+    public String getUserRole(long roleId) {
+        String query = "SELECT role FROM roles As r JOIN users AS u ON u.id = r.id WHERE u.id = ? LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, roleId);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return rs.getString(1);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by username", e);
         }
     }
 
