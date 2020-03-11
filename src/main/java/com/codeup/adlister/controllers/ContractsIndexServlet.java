@@ -2,7 +2,6 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.Contracts;
 import com.codeup.adlister.dao.DaoFactory;
-import com.codeup.adlister.dao.MySQLContractsDao;
 import com.codeup.adlister.dao.Users;
 import com.codeup.adlister.models.User;
 
@@ -26,8 +25,13 @@ public class ContractsIndexServlet extends HttpServlet {
         Users userDao = DaoFactory.getUsersDao();
 
         User currentUser = (User) request.getSession().getAttribute("user");
-        String userRole = userDao.getUserRole(currentUser.getRoleId());
+        if (currentUser.getRoleId() == 1) {
+            request.setAttribute("contracts", contractsDao.all());
+            request.getRequestDispatcher("/WEB-INF/contracts/index.jsp").forward(request, response);
+            return;
+        }
 
+        String userRole = userDao.getUserRole(currentUser.getRoleId());
         request.setAttribute("contracts", contractsDao.getContractsByRole(userRole));
         request.getRequestDispatcher("/WEB-INF/contracts/index.jsp").forward(request, response);
     }
