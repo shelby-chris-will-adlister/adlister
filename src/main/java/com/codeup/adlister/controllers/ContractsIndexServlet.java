@@ -21,11 +21,14 @@ public class ContractsIndexServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
-        Users userDao = DaoFactory.getUsersDao();
-        User currentUser = userDao.findByUsername(request.getParameter("username"));
-        Contracts contractsDao = DaoFactory.getContractsDao();
 
-        request.setAttribute("contracts", contractsDao.getContractsByRole(currentUser.getRoleId()));
+        Contracts contractsDao = DaoFactory.getContractsDao();
+        Users userDao = DaoFactory.getUsersDao();
+
+        User currentUser = (User) request.getSession().getAttribute("user");
+        String userRole = userDao.getUserRole(currentUser.getRoleId());
+
+        request.setAttribute("contracts", contractsDao.getContractsByRole(userRole));
         request.getRequestDispatcher("/WEB-INF/contracts/index.jsp").forward(request, response);
     }
 }

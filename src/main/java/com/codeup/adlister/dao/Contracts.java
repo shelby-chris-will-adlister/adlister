@@ -10,5 +10,5 @@ public interface Contracts {
     List<Contract> all();
     // insert a new ad and return the new ad's id
     Long insert(Contract ad);
-    List<Contract> getContractsByRole(Long roleId);
+    List<Contract> getContractsByRole(String role);
 }
