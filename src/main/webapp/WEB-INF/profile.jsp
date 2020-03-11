@@ -12,5 +12,10 @@
         <h1>Welcome, ${sessionScope.user.username}!</h1>
     </div>
 
+    <div class="container">
+        <h2><a href="/contracts">See Adds Available for Your Skill-Set</a></h2>
+    </div>
+
+
 </body>
 </html>

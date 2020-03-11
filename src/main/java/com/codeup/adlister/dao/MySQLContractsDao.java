@@ -204,15 +204,4 @@ public class MySQLContractsDao implements Contracts {
         stmt.close();
         return rowUpdated;
     }
-
-    public boolean deleteContract(Contract contract) throws SQLException {
-        String sql = "DELETE FROM contracts WHERE id = ?";
-
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setLong(1, contract.getId());
-
-        boolean rowDeleted = statement.executeUpdate() > 0;
-        statement.close();
-        return rowDeleted;
-    }
 }

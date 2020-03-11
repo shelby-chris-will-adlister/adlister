@@ -18,7 +18,7 @@ public class CreateAdServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Double reward = Double.parseDouble(request.getParameter("reward"));
+        Float reward = Float.parseFloat(request.getParameter("reward"));
         Contract contract = new Contract(
             1, // for now we'll hardcode the user id
             request.getParameter("title"),
