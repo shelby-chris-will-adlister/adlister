@@ -215,9 +215,10 @@ public class MySQLContractsDao implements Contracts {
         PreparedStatement stmt = connection.prepareStatement(sql);
         stmt.setString(1, contract.getTitle());
         stmt.setString(2, contract.getDescription());
-        stmt.setFloat(3, contract.getReward());
-        stmt.setString(4, contract.getCountry());
+        stmt.setString(3, contract.getCountry());
+        stmt.setFloat(4, contract.getReward());
         stmt.setLong(5, contract.getUserId());
+        stmt.setLong(6, contract.getId());
 
         boolean rowUpdated = stmt.executeUpdate() > 0;
         stmt.close();

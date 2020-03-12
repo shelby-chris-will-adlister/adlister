@@ -10,7 +10,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
     <h1>Edit a contract</h1>
-    <form action="/edit" method="POST">
+    <form action="/contracts/edit" method="POST">
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" name="title" id="title" class="form-control" value="<c:out value='${contract.title}' />"/>
@@ -20,8 +20,8 @@
             <input type="text" name="reward" id="reward" class="form-control" value="<c:out value='${contract.reward}' />"/>
         </div>
         <div class="form-group">
-            <label for="location">Location</label>
-            <input type="text" name="location" id="location" class="form-control" value="<c:out value='${contract.location}' />"/>
+            <label for="country">Country</label>
+            <input type="text" name="country" id="country" class="form-control" value="<c:out value='${contract.country}' />"/>
         </div>
         <div class="form-group">
             <label for="description">Description</label>

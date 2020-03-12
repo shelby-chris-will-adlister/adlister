@@ -7,11 +7,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>Create a new Ad</h1>
-        <form action="/ads/create" method="post">
+        <h1>Create a new contract</h1>
+        <form action="/contracts/create" method="post">
             <div class="form-group">
                 <label for="title">Title</label>
                 <input id="title" name="title" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="reward">Reward</label>
+                <input id="reward" name="reward" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input id="country" name="country" class="form-control" type="text">
             </div>
             <div class="form-group">
                 <label for="description">Description</label>

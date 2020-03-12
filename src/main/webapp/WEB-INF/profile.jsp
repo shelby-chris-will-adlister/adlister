@@ -29,7 +29,7 @@
                             <p class="card-text text-center">SITREP: ${contract.description}</p>
                             <p class="card-text text-center">REWARD: $${contract.reward}M</p>
                             <p class="card-text text-center">LOCATION: ${contract.country}</p>
-                            <form action="/contracts/edit" method="POST">
+                            <form action="/contracts/edit" method="GET">
                                 <div class="form-group">
                                     <input type="hidden" name="id" value="${contract.id}">
                                     <button type="submit"><i class="icon-edit"></i>Edit</button>
