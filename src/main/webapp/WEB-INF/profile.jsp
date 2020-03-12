@@ -46,6 +46,14 @@
                 </c:forEach>
             </div>
         </div>
+        <div class="containter">
+            <h1 class="text-center">Create A New Contract: </h1>
+            <div class="form-group">
+                <form action="/contracts/create" method="GET">
+                    <button type="submit"><i class="icon-edit"></i>CREATE</button>
+                </form>
+            </div>
+        </div>
     </div>
   
 </body>

@@ -31,7 +31,9 @@ public class MySQLContractsDao implements Contracts {
 //            System.out.println(c.getTitle());
 //        }
 
-        contractsDao.deleteContract(3);
+//        contractsDao.deleteContract(3);
+
+        contractsDao.insertNewContractsRoles(2,8);
     }
 
     public MySQLContractsDao(Config config) {
@@ -139,6 +141,18 @@ public class MySQLContractsDao implements Contracts {
             return rs.getLong(1);
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new contract.", e);
+        }
+    }
+
+    public void insertNewContractsRoles(long contractId, long roleId) {
+        try {
+            String insertQuery = "INSERT INTO contracts_roles(contract_id, role_id) VALUES (?, ?)";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, contractId);
+            stmt.setLong(2, roleId);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error create a new contracts_roles relationship.", e);
         }
     }
 

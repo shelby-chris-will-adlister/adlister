@@ -22,13 +22,15 @@ public class CreateAdServlet extends HttpServlet {
         Float reward = Float.parseFloat(request.getParameter("reward"));
         User currentUser = (User) request.getSession().getAttribute("user");
         Contract contract = new Contract(
-            currentUser.getId(), // for now we'll hardcode the user id
+            currentUser.getId(),
             request.getParameter("title"),
             request.getParameter("description"),
             request.getParameter("country"),
             reward
         );
-        DaoFactory.getContractsDao().insert(contract);
-        response.sendRedirect("/contracts");
+
+        Long newContractId = DaoFactory.getContractsDao().insert(contract);
+        DaoFactory.getContractsDao().insertNewContractsRoles(newContractId, currentUser.getRoleId());
+        response.sendRedirect("/profile");
     }
 }

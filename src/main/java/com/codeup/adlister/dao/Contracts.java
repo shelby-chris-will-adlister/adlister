@@ -16,4 +16,5 @@ public interface Contracts {
     void deleteContract(long id);
     boolean updateContract(Contract contract) throws SQLException;
     Contract getContractById(long id);
+    void insertNewContractsRoles(long contractId, long roleId);
 }
