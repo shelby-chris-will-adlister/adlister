@@ -24,6 +24,8 @@ public class MySQLUsersDao implements Users {
 //        System.out.println(hash);
 
 //        usersDao.insert(new User(3, "test", "test", "test"));
+
+//        usersDao.update(new User(3,10, "test", "test", "testPW"));
     }
 
     public MySQLUsersDao(Config config) {
@@ -66,6 +68,21 @@ public class MySQLUsersDao implements Users {
             return rs.getLong(1);
         } catch (SQLException e) {
             throw new RuntimeException("Error creating new user", e);
+        }
+    }
+
+    public boolean update(User user) {
+        String query = "UPDATE users SET email = ?, password = ? WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, user.getEmail());
+            stmt.setString(2, user.getPassword());
+            stmt.setLong(3, user.getId());
+            boolean rowUpdated = stmt.executeUpdate() > 0;
+            stmt.close();
+            return rowUpdated;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating user", e);
         }
     }
 
