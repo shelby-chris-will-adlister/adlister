@@ -5,8 +5,8 @@
             <a class="navbar-brand" href="/">
                 <img src="img/rose.jpg" width="30" height="30" class="p-0 mt-1" alt=""></a>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/login">Login</a></li>
-                <li><a href="/logout">Logout</a></li>
+                <li><a href="/login" style="color: #D10002">Login</a></li>
+                <li><a href="/logout" style="color: #D10002">Logout</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

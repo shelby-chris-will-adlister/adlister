@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="WEB-INF/style.css"
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Welcome to my site!"/>
     </jsp:include>
@@ -18,35 +19,37 @@
             <h1 class="text-center">Welcome to the SCS! </h1>
         </div>
     </div>
-    <div class="container">
+</div>
+<br>
+    <div class="container mt-5">
         <div class="row mt-5 d-flex justify-content-center">
+            <div class="col-sm-4 card border-dark card-custom mx-2 mb-3 text-center" style="">
+                <img src="img/rose.jpg" class="card-img-top" alt="..." style="width:50%; height:25%">
+                <div class="card-body">
+                    <h5 class="card-title">Single Rose</h5>
+                    <p class="card-text">Just One</p>
+                    <a href="#" class="btn" style="background-color: #D10002 !important; color: white">Out Of Stock</a>
+                </div>
+            </div>
             <div class="col-sm-4 card card-custom mx-2 mb-3 text-center" style="">
-                <img src="img/rose.jpg" class="card-img-top" alt="...">
+                <img src="img/rose.jpg" class="card-img-top" alt="..." style="width:50%; height:25%">
                 <div class="card-body">
                     <h5 class="card-title text-center">Half-Doze Roses</h5>
                     <p class="card-text text-center">Six Roses</p>
-                    <a href="#" class="btn btn-primary text-center">Out Of Stock</a>
+                    <a href="#" class="btn text-center" style="background-color: #D10002 !important; color: white">Out Of Stock</a>
                 </div>
             </div>
             <div class="col-sm-4 card card-custom mx-2 mb-3 text-center" style="">
-                <img src="img/rose.jpg" class="card-img-top" alt="...">
+                <img src="img/rose.jpg" class="card-img-top" alt="..." style="width:50%; height:25%">
                 <div class="card-body">
-                    <h5 class="card-title">Half-Doze Roses</h5>
-                    <p class="card-text">Six Roses</p>
-                    <a href="#" class="btn btn-primary">Out Of Stock</a>
-                </div>
-            </div>
-            <div class="col-sm-4 card card-custom mx-2 mb-3 text-center" style="">
-                <img src="img/rose.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Half-Doze Roses</h5>
-                    <p class="card-text">Six Roses</p>
-                    <a href="#" class="btn btn-primary">Out Of Stock</a>
+                    <h5 class="card-title">Dozen Roses</h5>
+                    <p class="card-text">Twelve Roses</p>
+                    <a href="#" class="btn" style="background-color: #D10002 !important; color: white">Out Of Stock</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<%--</div>--%>
 <%--//bootstrap scripts--%>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
