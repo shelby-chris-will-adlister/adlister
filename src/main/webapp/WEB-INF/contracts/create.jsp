@@ -6,6 +6,7 @@
     </jsp:include>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbarLogout.jsp" />
     <div class="container">
         <h1>Create a new contract</h1>
         <form action="/contracts/create" method="post">

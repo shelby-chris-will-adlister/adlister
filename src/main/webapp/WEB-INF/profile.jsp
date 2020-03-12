@@ -7,7 +7,7 @@
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+    <jsp:include page="/WEB-INF/partials/navbarLogout.jsp" />
 
     <div class="container d-flex justify-content-center text-center">
         <h1>Welcome, ${sessionScope.user.username}!</h1>

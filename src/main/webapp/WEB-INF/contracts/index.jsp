@@ -7,7 +7,7 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+<jsp:include page="/WEB-INF/partials/navbarLogout.jsp"/>
 
 <div class="container text-center">
     <h1 class="text-center">Available Contracts: </h1>
