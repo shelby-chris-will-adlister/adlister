@@ -17,8 +17,8 @@
                 <div class="col-sm-4 card card-custom mx-2 mb-3 text-center" style="">
                     <img src="half-dozen.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h2 class="card-title text-center">MISSION: ${contract.title}</h2>
-                        <p class="card-text text-center">SITREP: ${contract.description}</p>
+                        <h2 class="card-title text-center"><a href="/contract?id=${contract.id}">MISSION: ${contract.title}</a></h2>
+                        <p class="card-text text-center">SITREP: ${contract.user_id}</p>
                         <p class="card-text text-center">REWARD: $${contract.reward}M</p>
                         <p class="card-text text-center">LOCATION: ${contract.country}</p>
                     </div>

@@ -18,8 +18,8 @@
                 <input id="reward" name="reward" class="form-control" type="text">
             </div>
             <div class="form-group">
-                <label for="location">Location</label>
-                <input id="location" name="location" class="form-control" type="text">
+                <label for="country">Country</label>
+                <input id="country" name="country" class="form-control" type="text">
             </div>
             <div class="form-group">
                 <label for="description">Description</label>

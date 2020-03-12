@@ -2,6 +2,7 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Contract;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,5 +14,6 @@ public interface Contracts {
     Long insert(Contract ad);
     List<Contract> getContractsByRole(String role);
     void deleteContract(long id);
+    boolean updateContract(Contract contract) throws SQLException;
     Contract getContractById(long id);
 }

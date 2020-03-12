@@ -20,8 +20,8 @@
             <input type="text" name="reward" id="reward" class="form-control" value="<c:out value='${contract.reward}' />"/>
         </div>
         <div class="form-group">
-            <label for="location">Location</label>
-            <input type="text" name="location" id="location" class="form-control" value="<c:out value='${contract.location}' />"/>
+            <label for="country">Country</label>
+            <input type="text" name="country" id="country" class="form-control" value="<c:out value='${contract.country}' />"/>
         </div>
         <div class="form-group">
             <label for="description">Description</label>
