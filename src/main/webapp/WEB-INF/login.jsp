@@ -18,11 +18,11 @@
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
-            <input type="submit" class="btn btn-primary btn-block" value="Log In">
+            <input type="submit" class="btn btn-block" style="background-color: #D10002 !important; color: white" value="Log In">
         </form>
     </div>
     <div class="container center">
-        <h4><a href="/register">Register New User</a></h4>
+        <h4><a href="/register" style="color: #D10002 !important;">Register New User</a></h4>
     </div>
 </body>
 </html>
