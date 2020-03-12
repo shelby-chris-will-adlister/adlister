@@ -7,7 +7,7 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/navbarLogout.jsp" />
 <div class="col-sm-4 card card-custom mx-2 mb-3 text-center" style="">
     <img src="img/rose.jpg" class="card-img-top" alt="..." style="width:50%; height:25%">
     <div class="card-body">

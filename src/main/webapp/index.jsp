@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="WEB-INF/style.css"
+    <link rel="stylesheet" href="style.css">
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Welcome to my site!"/>
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+<jsp:include page="/WEB-INF/partials/navbarLogin.jsp"/>
 <div class="container d-flex justify-content-center">
     <div class="row">
         <div class="d-flex justify-content-center">
@@ -24,7 +24,7 @@
     <div class="container mt-5">
         <div class="row mt-5 d-flex justify-content-center">
             <div class="col-sm-4 card border-dark card-custom mx-2 mb-3 text-center" style="">
-                <img src="img/rose.jpg" class="card-img-top" alt="..." style="width:50%; height:25%">
+                <img src="img/rose.jpg" class="rounded card-img-top" alt="..." style="width:50%; height:25%">
                 <div class="card-body">
                     <h5 class="card-title">Single Rose</h5>
                     <p class="card-text">Just One</p>
