@@ -8,4 +8,5 @@ public interface Users {
     User findByUsername(String username);
     Long insert(User user);
     String getUserRole(long roleId);
+    boolean update(User user);
 }

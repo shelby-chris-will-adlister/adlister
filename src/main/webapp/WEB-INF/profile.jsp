@@ -14,6 +14,10 @@
     </div>
 
     <div class="container d-flex justify-content-center text-center">
+        <h4><a href="/edit" style="color: #D10002 !important;">Edit Profile</a></h4>
+    </div>
+
+    <div class="container d-flex justify-content-center text-center">
         <h2><a href="/contracts" style="color: #D10002 !important;">View Available Contracts</a></h2>
     </div>
 
