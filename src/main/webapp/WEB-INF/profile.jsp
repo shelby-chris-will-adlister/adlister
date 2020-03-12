@@ -9,11 +9,11 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-    <div class="container">
+    <div class="container d-flex justify-content-center text-center">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
     </div>
 
-    <div class="container">
+    <div class="container d-flex justify-content-center text-center">
         <h2><a href="/contracts" style="color: #D10002 !important;">View Available Contracts</a></h2>
     </div>
 
@@ -25,10 +25,10 @@
                     <div class="col-sm-4 card card-custom mx-2 mb-3 text-center" style="">
                         <img src="img/rose.jpg" class="card-img-top" alt="..." style="width:50%; height:25%">
                         <div class="card-body">
-                            <h2 class="card-title text-center">MISSION: ${contract.title}</h2>
-                            <p class="card-text text-center">SITREP: ${contract.description}</p>
-                            <p class="card-text text-center">REWARD: $${contract.reward}M</p>
-                            <p class="card-text text-center">LOCATION: ${contract.country}</p>
+                            <h2 class="card-title text-center"><a href="/contract?id=${contract.id}" style="color: #D10002">MISSION: ${contract.title}</a></h2>
+                            <h3 class="card-text text-center">SITREP: ${contract.description}</h3>
+                            <h3 class="card-text text-center">REWARD: $${contract.reward}M</h3>
+                            <h3 class="card-text text-center">LOCATION: ${contract.country}</h3>
                             <form action="/contracts/edit" method="GET">
                                 <div class="form-group">
                                     <input type="hidden" name="id" value="${contract.id}">
