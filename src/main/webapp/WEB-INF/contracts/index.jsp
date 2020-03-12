@@ -9,6 +9,10 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbarLogout.jsp"/>
 
+<div class="container d-flex justify-content-center text-center">
+    <h4><a href="/profile" style="color: #D10002 !important;">Back To Profile</a></h4>
+</div>
+
 <div class="container text-center">
     <h1 class="text-center">Available Contracts: </h1>
     <div class="container">
